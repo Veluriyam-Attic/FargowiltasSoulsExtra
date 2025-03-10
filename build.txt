@@ -1,0 +1,5 @@
+displayName = FargowiltasSoulsExtra
+author = 虞悖
+version = 0.1
+modReferences = Fargowiltas,Luminance,FargowiltasSouls,FargowiltasSoulsDLC
+weakReferences = CalamityMod,ThoriumMod,FargowiltasCrossmod

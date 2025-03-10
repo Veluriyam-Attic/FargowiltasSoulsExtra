@@ -1,0 +1,13 @@
+Items: {
+	MolluskEnchant: {
+		DisplayName: 软壳魔石
+		Tooltip:
+			'''
+			减少20移速
+			攻击敌人增加100%伤害并恢复减少的移速
+			液体中可以自由行动
+			'''
+	}
+}
+
+WizardEffect.Mollusk: 减少10%移速

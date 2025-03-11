@@ -1,13 +1,35 @@
-Items: {
-	MolluskEnchant: {
-		DisplayName: 软壳魔石
-		Tooltip:
-			'''
-			减少20%移速
-			攻击敌人增加%伤害并恢复y减少的移速
-			液体中可以自由行动
-			'''
+Common: {
+	NameEnchant: 魔石
+
+	Status: {
+		Damage: 伤害
+		Ranged: 远程伤害
+		Magic: 魔法伤害
+		Melee: 近战伤害
+		Summon: 召唤伤害
+		Sentry: 哨兵
+		Minion: 仆从
+		Rogue: 盗贼
+		Stealth: 潜伏值
+		Decrease: 减少
+		Increase: 增加
+		MoveSpeed: 移动速度
 	}
 }
 
-WizardEffect.Mollusk: 减少10%移速
+Items: {
+	MolluskEnchant: {
+		DisplayName: 软壳{$Mods.FargowiltasSoulsExtra.Common.NameEnchant}
+		Tooltip:
+			'''
+			{$Mods.FargowiltasSoulsExtra.Common.Status.Decrease}{0}%{$Mods.FargowiltasSoulsExtra.Common.Status.MoveSpeed}
+			击中敌人时逐渐{$Mods.FargowiltasSoulsExtra.Common.Status.Increase}{$Mods.FargowiltasSoulsExtra.Common.Status.Damage}，最多为{1}%
+			如果连续{2}秒未击中敌人将取消{$Mods.FargowiltasSoulsExtra.Common.Status.Damage}加成
+			同时额外{$Mods.FargowiltasSoulsExtra.Common.Status.Decrease}{3}%{$Mods.FargowiltasSoulsExtra.Common.Status.MoveSpeed}
+			液体中可以自由行动
+			'''
+		MolluskEnchantWizardText: 攻击时额外减少的{$Mods.FargowiltasSoulsExtra.Common.Status.MoveSpeed}修改为0%
+	}
+}
+
+WizardEffect.Mollusk: "{$Mods.FargowiltasSoulsExtra.Items.MolluskEnchant.MolluskEnchantWizardText}"

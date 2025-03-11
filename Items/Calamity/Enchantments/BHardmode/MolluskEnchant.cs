@@ -6,6 +6,7 @@ using FargowiltasSouls.Content.Items.Accessories.Enchantments;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
+using FargowiltasSoulsExtra.Core;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -57,8 +58,7 @@ namespace FargowiltasSoulsExtra.Items.Calamity.Enchantments.BHardmode
 
     public class MolluskEnchantEffect : AccessoryEffect
     {
-        
-        public static int HitTime = 0;
+        public static int AddDamage = 0;
         public override Header ToggleHeader => Header.GetHeader<EarthHeader>();
         public override void PostUpdateEquips(Player player)
         {
@@ -66,37 +66,35 @@ namespace FargowiltasSoulsExtra.Items.Calamity.Enchantments.BHardmode
             player.ignoreWater = true;
 			// 减20%速度，巫师魔石减10%
             player.moveSpeed -= player.ForceEffect<MolluskEnchantEffect>()? 0.1f:0.2f;
-            HitTime++;
         }
     }
 
-    public class MolluskPlayer: ModPlayer
-    {
-        public static bool CanAddDamage;
-        public static float AddDamage = 1;
+    public class MolluskPlayer : ModPlayer{
         public override void ResetEffects()
         {
-            Player.GetDamage(DamageClass.Generic) += AddDamage;
-            Player.moveSpeed -= Player.ForceEffect<MolluskEnchantEffect>()? 0.1f:0.2f;
-            Player.GetDamage(DamageClass.Generic) -= AddDamage;
+            if(Player.HasEffectEnchant<MolluskEnchantEffect>() && ExtraGlobalProjectile.HitTime <=180 && 0 < ExtraGlobalProjectile.HitTime)
+            {
+                Player.GetDamage(DamageClass.Generic) -= MolluskEnchantEffect.AddDamage;
+                Player.moveSpeed += Player.ForceEffect<MolluskEnchantEffect>()? 0.1f:0.2f;
+                Player.GetDamage(DamageClass.Generic) += MolluskEnchantEffect.AddDamage;
+            }
+            else if(Player.HasEffectEnchant<MolluskEnchantEffect>() && ExtraGlobalProjectile.HitTime  > 180)
+                Player.GetDamage(DamageClass.Generic) -= MolluskEnchantEffect.AddDamage;
+                MolluskEnchantEffect.AddDamage = 0;
         }
     }
 
     public class MolluskGlobalProjectile : GlobalProjectile
     {
-
         public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.LocalPlayer;
-            if (player.HasEffectEnchant<MolluskEnchantEffect>())
+            if (player.HasEffectEnchant<MolluskEnchantEffect>() && Main.player[projectile.owner] == Main.LocalPlayer)
             {
-                MolluskPlayer.AddDamage++;
-                if(MolluskEnchantEffect.HitTime >= 180)
-                {
-                    player.GetDamage(DamageClass.Generic) -= MolluskPlayer.AddDamage;
-                    MolluskPlayer.AddDamage = 0;
-                }
-                MolluskEnchantEffect.HitTime = 0;
+                if(MolluskEnchantEffect.AddDamage < 20)
+                    MolluskEnchantEffect.AddDamage++;
+                else if(MolluskEnchantEffect.AddDamage == 20)
+                    MolluskEnchantEffect.AddDamage = 20;
             }
         }
     }

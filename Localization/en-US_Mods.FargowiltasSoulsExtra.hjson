@@ -22,13 +22,13 @@ Items: {
 		DisplayName: 软壳{$Mods.FargowiltasSoulsExtra.Common.NameEnchant}
 		Tooltip:
 			'''
-			{$Mods.FargowiltasSoulsExtra.Common.Status.Decrease}{0}%{$Mods.FargowiltasSoulsExtra.Common.Status.MoveSpeed}
-			击中敌人时逐渐{$Mods.FargowiltasSoulsExtra.Common.Status.Increase}{$Mods.FargowiltasSoulsExtra.Common.Status.Damage}，最多为{1}%
-			如果连续{2}秒未击中敌人将取消{$Mods.FargowiltasSoulsExtra.Common.Status.Damage}加成
-			同时额外{$Mods.FargowiltasSoulsExtra.Common.Status.Decrease}{3}%{$Mods.FargowiltasSoulsExtra.Common.Status.MoveSpeed}
+			增加{0}%移动速度
+			击中敌人时逐渐增加伤害，最多为{1}%
+			如果连续{2}秒未击中敌人将取消伤害加成
+			同时额外减少{3}%移动速度
 			液体中可以自由行动
 			'''
-		MolluskEnchantWizardText: 攻击时额外减少的{$Mods.FargowiltasSoulsExtra.Common.Status.MoveSpeed}修改为0%
+		MolluskEnchantWizardText: 攻击时额外减少的移动速度修改为
 	}
 }
 

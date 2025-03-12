@@ -23,12 +23,13 @@ public class CalHardModeEnchantBalance
     // 软壳魔石：连续命中时每次增加的伤害，单位为1%
     // 软壳魔石：总加伤次数等于最大值除以这个值
     // 软壳魔石：尽量保证总加伤次数是整数
-    public static float MolluskEnchantReduceSpeed = 10f;
+    public static float MolluskEnchantReduceSpeed = 7f;
     // 软壳魔石：这是默认减速的数值，单位1%
-    public static float MolluskEnchantExtraReduceSpeed = 10f;
+    public static float MolluskEnchantExtraReduceSpeed = 7f;
     // 软壳魔石：这是移动时额外减少的速度，单位1%
     public static float MolluskEnchantWizardSpeed = 0f;
-    // 软壳魔石：这是使用巫师魔石时额外减速的数值，单位1%
-    // 软壳魔石： 这个变动需要修改巫师魔石升级描述
+    // 软壳魔石：这是使用巫师魔石下移动时额外减速的数值，单位1%
+    // 软壳魔石：这个变动需要修改巫师魔石升级描述
+    // 软壳魔石：待完成
     #endregion
 }

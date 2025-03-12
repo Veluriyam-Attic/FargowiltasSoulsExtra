@@ -30,6 +30,6 @@ public class CalHardModeEnchantBalance
     public static float MolluskEnchantWizardSpeed = 0f;
     // 软壳魔石：这是使用巫师魔石下移动时额外减速的数值，单位1%
     // 软壳魔石：这个变动需要修改巫师魔石升级描述
-    // 软壳魔石：待完成
+    // 软壳魔石：待完善
     #endregion
 }

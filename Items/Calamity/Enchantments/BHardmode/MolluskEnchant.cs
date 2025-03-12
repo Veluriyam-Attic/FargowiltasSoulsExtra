@@ -20,7 +20,7 @@ namespace FargowiltasSoulsExtra.Items.Calamity.Enchantments.BHardmode
 	{
 		public override Color nameColor => new Color(248, 146, 248);
 
-        // 是否启用DLC判定
+        // 是否启用DLC判定，待完善
 
         // public override bool IsLoadingEnabled(Mod mod)
         // {

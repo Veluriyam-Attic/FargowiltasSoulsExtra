@@ -62,16 +62,6 @@ namespace FargowiltasSoulsExtra.Items.Calamity.Enchantments.BHardmode
 
         // 给物品描述传值
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(CalHardModeEnchantBalance.MolluskEnchantReduceSpeed,CalHardModeEnchantBalance.MolluskEnchantMaxAddDamage,CalHardModeEnchantBalance.MolluskEnchantAddDamageSpace,CalHardModeEnchantBalance.MolluskEnchantExtraReduceSpeed);
-
-        // public override void SafeModifyTooltips(List<TooltipLine> tooltips)
-        // {
-            // int num = tooltips.FindIndex(num => num.Name.Equals("wizard"));
-            // var line = (new TooltipLine(Mod, "IDMolluskEnchant", Language.GetTextValue("Mods.FargowiltasSoulsExtra.Item.MolluskEnchantWizardText") + CalHardModeEnchantBalance.MolluskEnchantWizardSpeed.ToString()));
-            // tooltips[num] = line;
-            // tooltips.Insert(num, line);
-            // tooltips.Remove(tooltips[num]);
-            // tooltips.FindAndReplace("wizard","Mods.FargowiltasSoulsExtra.Item.MolluskEnchantWizardText");
-        // }
     }
 
     public class MolluskEnchantEffect : AccessoryEffect
